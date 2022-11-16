@@ -6,7 +6,8 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 import "./Base64.sol";
-import "./IContent.sol";
+
+// import "./IContent.sol";
 
 /*
  * @author Citizen13
@@ -20,7 +21,7 @@ contract horoscopeNFT is ERC721URIStorage {
     string baseSvg =
         "https://en.wikipedia.org/wiki/Aquarius_(astrology)#/media/File:";
     uint256 constant PRICE = 0.005 / 0.000000000000000001;
-    mapping(uint256 => IContent.Item) Content;
+    // mapping(uint256 => IContent.Item) Content;
     string constant PROJECT_NAME = "Horoscope";
     string constant PROJECT_SYMBOL = "HSCP";
     address public renderingContractAddress;
@@ -97,13 +98,13 @@ contract horoscopeNFT is ERC721URIStorage {
         return newItemId;
     }
 
-    function generateNFT(srting calldata itemName, uint256[6] calldata Magic)
+    function generateNFT(string calldata itemName, uint256[6] calldata Magic)
         public
         payable
         virtual
     {
         // A check if there's enough ETH sent to the method to mint
-        require(msg.value >= price, "Not enough ETH sent; check price!");
+        require(msg.value >= PRICE, "Not enough ETH sent; check price!");
         uint256 newItemId = _tokenIds.current();
     }
 }

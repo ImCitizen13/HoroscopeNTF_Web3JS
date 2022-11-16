@@ -10,7 +10,7 @@ async function main() {
     const myAddress="0x2CdC506d5692e7C431f48f9910cAe80d02B1f30d";
     console.log("horoscopeNFT deployed to:", hscp.address);   
  
-    let txn = await hscp.mintNFT(myAddress, 'virgo');
+    // let txn = await hscp.mintNFT(myAddress, 'virgo');
     await txn.wait();
  
 }
